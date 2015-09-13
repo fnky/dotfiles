@@ -20,9 +20,9 @@ git_dirty() {
   else
     if [[ $($git status --porcelain) == "" ]]
     then
-      echo "on %{$fg_bold[green]%}$(git_prompt_info)%{$reset_color%}"
+      echo "%{$fg[black]%}on %{$fg_bold[green]%}$(git_prompt_info)%{$reset_color%}"
     else
-      echo "on %{$fg_bold[red]%}$(git_prompt_info)%{$reset_color%}"
+      echo "%{$fg[black]%}on %{$fg_bold[red]%}$(git_prompt_info)%{$reset_color%}"
     fi
   fi
 }
@@ -42,7 +42,7 @@ need_push () {
   then
     echo " "
   else
-    echo " with %{$fg_bold[magenta]%}unpushed%{$reset_color%} "
+    echo " %{$fg[black]%}with %{$fg_bold[magenta]%}unpushed%{$reset_color%} "
   fi
 }
 
@@ -58,6 +58,13 @@ ruby_version() {
   fi
 }
 
+node_version() {
+  if (( $+commands[node] ))
+  then
+    echo "$(node -v | awk '{print substr($0,2)}')"
+  fi
+}
+
 rb_prompt() {
   if ! [[ -z "$(ruby_version)" ]]
   then
@@ -67,11 +74,20 @@ rb_prompt() {
   fi
 }
 
+node_prompt() {
+  if ! [[ -z "$(node_version)" ]]
+  then
+    echo "%{$fg_bold[yellow]%}$(node_version)%{$reset_color%} "
+  else
+    echo ""
+  fi
+}
+
 directory_name() {
   echo "%{$fg_bold[cyan]%}%1/%\/%{$reset_color%}"
 }
 
-export PROMPT=$'\n$(rb_prompt)in $(directory_name) $(git_dirty)$(need_push)\n› '
+export PROMPT=$'\n$(node_prompt)%{$fg[black]%}in $(directory_name) $(git_dirty)$(need_push)\n%{$fg[black]%}› '
 set_prompt () {
   export RPROMPT="%{$fg_bold[cyan]%}%{$reset_color%}"
 }
