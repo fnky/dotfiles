@@ -9,7 +9,7 @@ export PATH=$HOME/.rbenv/shims:$PATH
 export GEM_HOME=$HOME/.rbenv/shims
 
 # PHP 5
-export PATH=/usr/local/php5/bin:$PATH
+# export PATH=/usr/local/php5/bin:$PATH
 
 # Heroku Toolbelt
 export PATH=/usr/local/heroku/bin:$PATH
