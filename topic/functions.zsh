@@ -35,6 +35,15 @@ function fs() {
   fi;
 }
 
+function hlight() {
+  if [ -z "$2" ]
+    then src="pbpaste"
+  else
+    src="cat $2"
+  fi
+  $src | highlight -O rtf --syntax $1 --font "Roboto Mono" --style zenburn --font-size 20 | pbcopy
+}
+
 # Create a data URL from a file
 function dataurl() {
   local mimeType=$(file -b --mime-type "$1");
