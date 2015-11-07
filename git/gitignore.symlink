@@ -1,14 +1,13 @@
-assets/js/models/model.coffee
-assets/js/models/game.model.coffee
-
-*.sublime-project
-*.sublime-workspace
-.idea
+# Misc
 *.dump
 .tags_sorted_by_file
 .tags
 .gemtags
 .coffeetags
+
+# Sublime
+*.sublime-project
+#*.sublime-workspace # workspace files are user-specific
 
 # Rails
 public/uploads
@@ -41,9 +40,6 @@ Temporary Items
 *.tmlanguage.cache
 *.tmPreferences.cache
 *.stTheme.cache
-
-# workspace files are user-specific
-*.sublime-workspace
 
 # project files should be checked into the repository, unless a significant
 # proportion of contributors will probably not be using SublimeText
