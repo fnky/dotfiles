@@ -39,3 +39,9 @@ export PATH=$PATH:$SCALA_HOME/bin
 # JCEF GYP
 export GYP_GENERATORS=xcode
 export GYP_DEFINES="jcef_platform=macosx64 jdk_directory=/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home target_arch=x64"
+
+# CMake
+export PATH=/Applications/CMake.app/Contents/bin:$PATH
+
+# Emscripten SDK
+export PATH=$HOME/Documents/Development/C++/emsdk_portable:$HOME/Documents/Development/C++/emsdk_portable/clang/e1.35.0_64bit:$HOME/Documents/Development/C++/emsdk_portable/node/4.1.1_64bit/bin:$HOME/Documents/Development/C++/emsdk_portable/emscripten/1.35.0:$PATH
