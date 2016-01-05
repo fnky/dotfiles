@@ -1,10 +1,12 @@
 "*":
   editor:
     showIndentGuide: true
-    fontFamily: "Menlo"
+    fontFamily: "Ubuntu Mono"
     invisibles: {}
-    fontSize: 15
     softWrapAtPreferredLineLength: true
+    fontSize: 15
+    scrollPastEnd: true
+    tabType: "soft"
   core:
     ignoredNames: [
       ".bundle"
@@ -34,3 +36,5 @@
     showOnStartup: false
   "release-notes":
     viewedVersion: "0.89.0"
+  "ide-flow":
+    flowPath: "/usr/local/bin/flow"
