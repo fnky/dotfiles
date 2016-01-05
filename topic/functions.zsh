@@ -1,5 +1,5 @@
 # Simple calculator
-function calc() {
+function calc {
   local result="";
   result="$(printf "scale=10;$*\n" | bc --mathlib | tr -d '\\\n')";
   #                       └─ default (when `--mathlib` is used) is 20
@@ -17,12 +17,12 @@ function calc() {
 }
 
 # Create a new directory and enter it
-function mkd() {
+function mkd {
   mkdir -p "$@" && cd "$_";
 }
 
 # Determine size of a file or total size of a directory
-function fs() {
+function fs {
   if du -b /dev/null > /dev/null 2>&1; then
     local arg=-sbh;
   else
@@ -35,7 +35,7 @@ function fs() {
   fi;
 }
 
-function hlight() {
+function hlight {
   if [ -z "$2" ]
     then src="pbpaste"
   else
@@ -45,7 +45,7 @@ function hlight() {
 }
 
 # Create a data URL from a file
-function dataurl() {
+function dataurl {
   local mimeType=$(file -b --mime-type "$1");
   if [[ $mimeType == text/* ]]; then
     mimeType="${mimeType};charset=utf-8";
@@ -54,7 +54,7 @@ function dataurl() {
 }
 
 # Create a git.io short URL
-function gitio() {
+function gitio {
   if [ -z "${1}" -o -z "${2}" ]; then
     echo "Usage: \`gitio slug url\`";
     return 1;
@@ -63,7 +63,7 @@ function gitio() {
 }
 
 # Start an HTTP server from a directory, optionally specifying the port
-function server() {
+function server {
   local port="${1:-8000}";
   sleep 1 && open "http://localhost:${port}/" &
   # Set the default Content-Type to `text/plain` instead of `application/octet-stream`
@@ -73,7 +73,7 @@ function server() {
 
 # Start a PHP server from a directory, optionally specifying the port
 # (Requires PHP 5.4.0+.)
-function phpserver() {
+function phpserver {
   local port="${1:-4000}";
   local ip=$(ipconfig getifaddr en1);
   sleep 1 && open "http://${ip}:${port}/" &
@@ -82,7 +82,7 @@ function phpserver() {
 
 # Syntax-highlight JSON strings or files
 # Usage: `json '{"foo":42}'` or `echo '{"foo":42}' | json`
-function json() {
+function json {
   if [ -t 0 ]; then # argument
     python -mjson.tool <<< "$*" | pygmentize -l javascript;
   else # pipe
@@ -91,13 +91,13 @@ function json() {
 }
 
 # Run `dig` and display the most useful info
-function digga() {
+function digga {
   dig +nocmd "$1" any +multiline +noall +answer;
 }
 
 # `s` with no arguments opens the current directory in Sublime Text, otherwise
 # opens the given location
-function s() {
+function s {
   if [ $# -eq 0 ]; then
     subl .;
   else
@@ -107,7 +107,7 @@ function s() {
 
 # `a` with no arguments opens the current directory in Atom Editor, otherwise
 # opens the given location
-function a() {
+function a {
   if [ $# -eq 0 ]; then
     atom .;
   else
@@ -117,7 +117,7 @@ function a() {
 
 # `v` with no arguments opens the current directory in Vim, otherwise opens the
 # given location
-function v() {
+function v {
   if [ $# -eq 0 ]; then
     vim .;
   else
@@ -125,9 +125,31 @@ function v() {
   fi;
 }
 
+nv () {
+	if [ $# -eq 0 ]
+	then
+		nvim .
+	else
+		nvim "$@"
+	fi
+}
+
+vs () {
+  VSCODE_CWD="$PWD"
+  
+  if [ $# -eq 0 ] 
+  then
+    cwd=.
+  else
+    cwd="$@"
+  fi
+
+  open -n -b "com.microsoft.VSCode" --args $cwd ;
+}
+
 # `o` with no arguments opens the current directory, otherwise opens the given
 # location
-function o() {
+function o {
   if [ $# -eq 0 ]; then
     open .;
   else
@@ -139,6 +161,36 @@ function o() {
 # the `.git` directory, listing directories first. The output gets piped into
 # `less` with options to preserve color and line numbers, unless the output is
 # small enough for one screen.
-function tre() {
+function tre {
   tree -aC -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX;
 }
+
+# Attach or create a tmux session.
+#
+# You can provide a name as the first argument, otherwise it defaults to the current directory name.
+# The argument tab completes among existing tmux session names.
+#
+# Example usage:
+#
+#   tat some-project
+#
+#   tat s<tab>
+#
+#   cd some-project
+#   tat
+#
+# Based on https://github.com/thoughtbot/dotfiles/blob/master/bin/tat
+# and http://krauspe.eu/r/tmux/comments/25mnr7/how_to_switch_sessions_faster_preferably_with/
+#
+function tat {
+  session_name=`basename ${1:-$PWD}`
+  tmux new-session -As "$session_name"
+}
+
+# function _tmux_complete_session {
+#   local IFS=$'\n'
+#   local cur=${COMP_WORDS[COMP_CWORD]}
+#   COMPREPLY=( ${COMPREPLY[@]:-} $(compgen -W "$(tmux -q list-sessions | cut -f 1 -d ':')" -- "${cur}") )
+# }
+
+# complete -F _tmux_complete_session tat
