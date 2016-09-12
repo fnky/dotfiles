@@ -1,7 +1,7 @@
 cask_args appdir: '/Applications'
 
-tap 'caskroom/cask'
 tap 'homebrew/bundle'
+tap 'puma/puma'
 
 brew 'ack'
 brew 'coreutils'
@@ -15,11 +15,14 @@ brew 'openssl'
 brew 'node'
 brew 'readline'
 brew 'postgresql'
+brew 'puma/puma/puma-dev'
 brew 'ruby-build'
 brew 'rbenv'
 brew 'roundup'
+brew 'spaceman-diff'
 brew 'spark'
 brew 'unrar'
+brew 'wget'
 brew 'youtube-dl'
 
 cask '1password'
