@@ -1,0 +1,5 @@
+'atom-workspace atom-text-editor:not([mini])':
+  'cmd-*': 'editor:toggle-line-comments'
+
+'atom-text-editor[data-grammar="text html mustache"]:not([mini])':
+    'tab': 'emmet:expand-abbreviation-with-tab'

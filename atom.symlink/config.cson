@@ -1,13 +1,25 @@
 "*":
-  editor:
-    showIndentGuide: true
-    fontFamily: "Ubuntu Mono"
-    invisibles: {}
-    softWrapAtPreferredLineLength: true
-    fontSize: 15
-    scrollPastEnd: true
-    tabType: "soft"
+  "autocomplete-plus":
+    enableBuiltinProvider: false
+  build: {}
+  "color-picker":
+    automaticReplace: true
   core:
+    disabledPackages: [
+      "background-tips"
+      "exception-reporting"
+      "metrics"
+      "api-workbench"
+      "language-lsl"
+      "go-plus"
+      "linter-js-standard"
+      "linter-glsl"
+      "block-cursor"
+      "language-gfm"
+      "markdown-preview-plus"
+    ]
+    followSymlinks: false
+    hideGitIgnoredFiles: true
     ignoredNames: [
       ".bundle"
       ".git"
@@ -17,16 +29,39 @@
       "vendor"
     ]
     themes: [
-      "unity-ui"
-      "glacier-syntax"
+      "seti-ui"
+      "made-of-code-atom"
     ]
-    hideGitIgnoredFiles: true
-    disabledPackages: [
-      "background-tips"
-      "exception-reporting"
-      "metrics"
-    ]
-    followSymlinks: false
+  editor:
+    fontFamily: "Monoid"
+    fontSize: 9
+    invisibles: {}
+    scrollPastEnd: true
+    showIndentGuide: true
+    softWrapAtPreferredLineLength: true
+    tabType: "soft"
+  emmet: {}
+  "go-plus":
+    formatTool: "gofmt"
+  "ide-flow":
+    flowPath: "/usr/local/bin/flow"
+  linter: {}
+  "linter-eslint":
+    globalNodePath: "/usr/local"
+  "linter-js-standard":
+    honorStyleSettings: true
+  "linter-pep8": {}
+  "linter-swift-package-manager":
+    executablePath: "/Library/Developer/Toolchains/swift-latest.xctoolchain/usr/bin/swift"
+  "markdown-preview":
+    useGitHubStyle: true
+  "python-tools": {}
+  "release-notes":
+    viewedVersion: "0.89.0"
+  "seti-ui":
+    compactView: true
+    disableAnimations: true
+    font: "Default Atom Font"
   "spell-check":
     grammars: [
       "text.plain"
@@ -35,7 +70,3 @@
     ]
   welcome:
     showOnStartup: false
-  "release-notes":
-    viewedVersion: "0.89.0"
-  "ide-flow":
-    flowPath: "/usr/local/bin/flow"

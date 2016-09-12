@@ -3,9 +3,20 @@ export VISUAL=subl
 export EDITOR=$VISUAL
 export GIT_EDITOR=$EDITOR
 
+# Use UTF-8 encoding for everything
+export LANG=en_US.UTF-8
+export LC_COLLATE=en_US.UTF-8
+export LC_CTYPE=en_US.UTF-8
+export LC_MESSAGES=en_US.UTF-8
+export LC_MONETARY=en_US.UTF-8
+export LC_NUMERIC=en_US.UTF-8
+export LC_TIME=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
 # syntax highlight
-export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/usr/local/share/zsh-syntax-highlighting/highlighters
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# ZSH_HIGHLIGHT_DIR=/usr/local/share/zsh-syntax-highlighting
+# export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=$ZSH_HIGHLIGHT_DIR/highlighters
+# source $ZSH_HIGHLIGHT_DIR/zsh-syntax-highlighting.zsh
 
 # Global
 export LANG=en_US.UTF-8
@@ -17,6 +28,7 @@ export COPYFILE_DISABLE=true
 
 # Git
 
+# gitdiffb - show diff between two branches
 gitdiffb() {
   if [ $# -ne 2 ]; then
     echo two branch names required

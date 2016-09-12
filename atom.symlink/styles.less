@@ -1,0 +1,168 @@
+// name font-family font-size line-height
+@styles:
+  dina 'DinaPro' 16px 1,
+  hasklig 'Hasklig' 15.5px 1.125,
+  mononoki 'mononoki' 16px 1.125;
+
+@editor-style: mononoki;
+
+// Get value from list for given key
+// Assigns the value to @by-key
+.by-key(@list, @key, @fallback...) {
+  .-(length(@list));
+  .-(@i) when (@i > 0) { .-((@i - 1)) }
+  .-(@i) when (@key = extract(extract(@list, @i), 1)) {
+  	@by-key: extract(@list, @i)
+  }
+
+  .--() { @by-key: @fallback } .--;
+}
+
+// Sets properties of given style
+.style (@style) {
+  .by-key(@styles, @style);
+  font-family: extract(@by-key, 2);
+  font-size: extract(@by-key, 3);
+  line-height: extract(@by-key, 4);
+}
+
+.font-feature-settings(@value: normal) {
+  -webkit-font-feature-settings: @value;
+  font-feature-settings: @value;
+}
+
+.font-feature(@state) when (isnumber(@state)), (@state = on), (@state = off) {
+  .font-feature-settings(~'"liga" @{state}, "calt" @{state}');
+}
+
+.font-feature(@state) { .font-feature-settings(@state); }
+.disable-ligatures { .font-feature(off); }
+.enable-ligatures { .font-feature(on); }
+
+/****************************************************
+ * PROFILES                                         *
+ *****************************************************/
+
+.font-render(@rendering: optimizeLegibility, @smoothing: antiliased) {
+
+}
+
+.__aliased {
+  text-rendering: optimizeSpeed;
+  -webkit-font-smoothing: none;
+}
+
+.__antialiased {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+.__ligatures(@font-family: Hasklig) {
+  .__slow;
+  .enable-ligatures;
+  font-family: @font-family;
+}
+
+atom-text-editor {
+  .__antialiased;
+  .style(@editor-style);
+}
+
+div.find-and-replace atom-text-editor::shadow .line {
+  .disable-ligatures;
+}
+
+div.project-find atom-text-editor::shadow .line {
+  .disable-ligatures;
+}
+
+// Disable it for current line with https://github.com/richrace/highlight-line
+atom-text-editor::shadow {
+  // The cursor line important to use rgba for opacity, also requires !important
+  // to override any theme.
+  .line.highlight-line,
+  .cursor-line {
+    // background: rgba(255, 0, 0, 0.3) !important;
+    text-rendering: optimizeSpeed;
+    .disable-ligatures;
+  }
+
+  // Replace 'solid', with 'dashed' or 'dotted' depending of what you have
+  // set in the settings page.
+  // This is for the bottom line (underline)
+  .line.highlight-line-multi-line-solid-bottom {
+    border-bottom-color: red;
+  }
+
+  // This is for the top line when you have the selection borders enabled.
+  .line.highlight-line-multi-line-solid-top {
+    border-top-color: red;
+  }
+
+  .cursors {
+    mix-blend-mode: color-dodge;
+
+    .cursor {
+      opacity: 1;
+      border: none;
+      background-color: #999;
+      transition: opacity 500ms 250ms cubic-bezier(0, 1, .2, 1)
+    }
+
+    /*&.blink-off .cursor {
+      opacity: 0;
+    }*/
+  }
+}
+
+atom-text-editor[mini]:not(.is-focused)::shadow .cursors .cursor {
+  display: none;
+}
+
+/*
+x == 0
+el === document.body
+true != false
+true !== false
+n >= 0
+i <= Integer.MAX_INT
+A.id <> NULL
+true <=> false
+x := -1
+  ++i
+ 1..10
+ 1...9
+mask >> 4
+cout << "Hola";
+  !!object
+  // comment
+<hr/>
+ (-> s vec)
+ (->> xs (map inc))
+((w) => w.Length)
+[X || X <- [1,2,3]]
+  <<-
+  ::keyword
+  #(+ 1 %)
+  #_form
+ (>>=) :: m a -> (a -> m b) -> m b
+ (=<<) :: Monad m => (a -> m b) -> m a -> m b
+(>>=) :: (Num a) => a -> a -> a
+a /=b ++ a <- c << [1..2] -<<
+a == w <- rng -< ()
+# Ruby
+=~
+!~
+#{abc}
+(. abc)
+(.- abc)
+<!!
+>!!
+<!
+>!
+~@ macro
+#'var
+#"regexp"
+*in*
+*out*
+*/

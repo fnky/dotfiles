@@ -43,5 +43,10 @@ export GYP_DEFINES="jcef_platform=macosx64 jdk_directory=/Library/Java/JavaVirtu
 # CMake
 export PATH=/Applications/CMake.app/Contents/bin:$PATH
 
-# Emscripten SDK
-export PATH=$HOME/Documents/Development/C++/emsdk_portable:$HOME/Documents/Development/C++/emsdk_portable/clang/e1.35.0_64bit:$HOME/Documents/Development/C++/emsdk_portable/node/4.1.1_64bit/bin:$HOME/Documents/Development/C++/emsdk_portable/emscripten/1.35.0:$PATH
+# Swift
+export PATH=/Library/Developer/Toolchains/swift-latest.xctoolchain/usr/bin:$PATH
+
+# Rust / Multirust
+export RUST_SRC_PATH=$HOME/.multirust/src/rust-5a782442d5728041b4c977e73b4fb291213d395b/src
+export CARGO_HOME=$HOME/.cargo
+export PATH=$CARGO_HOME/bin:$PATH
