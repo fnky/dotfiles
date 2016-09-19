@@ -1,5 +1,5 @@
 #!/bin/zsh
-source ~/.dotfiles/topic/zplug.symlink/zplug
+source ~/.zplug/init.zsh
 
 has_plugin() {
   (( $+functions[zplug] )) || return 1
