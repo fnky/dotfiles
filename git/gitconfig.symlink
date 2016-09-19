@@ -16,7 +16,7 @@
         ui = true
 [core]
         excludesfile = ~/.gitignore
-        editor = vim
+	editor = subl -n -w
 [apply]
         whitespace = nowarn
 [mergetool]
@@ -31,3 +31,6 @@
         #
         # Setting to git 2.0 default to suppress warning message
         default = simple
+[user]
+	name = Christian Petersen
+	email = chrs@cbp.io

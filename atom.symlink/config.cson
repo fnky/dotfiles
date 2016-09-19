@@ -1,15 +1,29 @@
 "*":
+  "autocomplete-elixir":
+    elixirPath: "/usr/local/bin"
+    erlangHome: "/usr/local/bin"
   "autocomplete-plus":
     enableBuiltinProvider: false
   build: {}
   "color-picker":
     automaticReplace: true
   core:
+    customFileTypes:
+      "source.ini": [
+        ".buckconfig"
+        ".flowconfig"
+      ]
+      "source.json": [
+        ".arcconfig"
+        "BUCK.autodeps"
+      ]
+      "source.python": [
+        "BUCK"
+      ]
     disabledPackages: [
       "background-tips"
       "exception-reporting"
       "metrics"
-      "api-workbench"
       "language-lsl"
       "go-plus"
       "linter-js-standard"
@@ -17,6 +31,7 @@
       "block-cursor"
       "language-gfm"
       "markdown-preview-plus"
+      "tree-view"
     ]
     followSymlinks: false
     hideGitIgnoredFiles: true
@@ -29,12 +44,11 @@
       "vendor"
     ]
     themes: [
-      "seti-ui"
+      "northem-dark-atom-ui"
       "made-of-code-atom"
     ]
   editor:
-    fontFamily: "Monoid"
-    fontSize: 9
+    fontFamily: "Menlo"
     invisibles: {}
     scrollPastEnd: true
     showIndentGuide: true
@@ -46,6 +60,7 @@
   "ide-flow":
     flowPath: "/usr/local/bin/flow"
   linter: {}
+  "linter-elixirc": {}
   "linter-eslint":
     globalNodePath: "/usr/local"
   "linter-js-standard":
