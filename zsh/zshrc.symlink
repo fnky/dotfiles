@@ -31,8 +31,7 @@ do
 done
 
 # initialize autocomplete here, otherwise functions won't be loaded
-autoload -U compinit
-compinit
+autoload -Uz compinit && compinit
 
 # load every completion after autocomplete loads
 for file in ${(M)config_files:#*/completion.zsh}
@@ -43,3 +42,7 @@ done
 unset config_files
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# tabtab source for yarn package
+# uninstall by removing these lines or running `tabtab uninstall yarn`
+[[ -f /Users/iChrille/.config/yarn/global/node_modules/tabtab/.completions/yarn.zsh ]] && . /Users/iChrille/.config/yarn/global/node_modules/tabtab/.completions/yarn.zsh
