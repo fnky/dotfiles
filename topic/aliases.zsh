@@ -1,5 +1,5 @@
-eval "$(hub alias -s)"
-eval "$(pyenv init -)"
+# eval "$(hub alias -s)"
+# eval "$(pyenv init -)"
 
 # Navigation .., ..., ...., ..... and -
 alias ..="cd .."
@@ -46,3 +46,15 @@ alias reload="exec $SHELL -l"
 
 alias suown='sudo chown -R $(whoami)'
 alias fuck='sudo $(fc -ln -1)'
+
+# VSCode
+# Chromium has a problem with macOS Sierra with background artifacts when
+# using a different Color Profile than the default Color LCD.
+#
+# By passing `--force-gpu-rasterization` or `--disable-gpu` to
+# the `code` command, or changing `window.zoomLevel` in VSCode settings to
+# something other than 0 should fix this problem.
+# alias vs='code --disable-gpu'
+function vs {
+  code $@ --disable-gpu
+}
