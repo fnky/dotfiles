@@ -1,3 +1,4 @@
+# npm completions
 eval "`npm completion`"
 
 # completion for lunchy
