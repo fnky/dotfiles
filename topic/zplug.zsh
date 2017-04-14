@@ -22,6 +22,7 @@ has_plugin() {
 # zplug "mrowa44/emojify",   as:command
 # zplug "junegunn/fzf-bin",  as:command, from:gh-r, file:"fzf", frozen:1
 zplug "glidenote/hub-zsh-completion"
+zplug "frmendes/geometry"
 zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-history-substring-search"
 
@@ -38,4 +39,6 @@ if ! zplug check --verbose; then
 fi
 
 # Source plugins and add commands to $PATH
-zplug load # --verbose
+# zplug load --verbose
+zplug check || zplug install
+zplug load > /dev/null
