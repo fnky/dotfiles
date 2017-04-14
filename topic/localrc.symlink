@@ -1,1 +1,13 @@
+export LSCOLORS="ExFxCxDxBxegedabaggcad"
 
+autoload -U colors && colors
+autoload -U promptinit
+
+# Customize geometry
+GEOMETRY_COLOR_GIT_DIRTY=9
+GEOMETRY_COLOR_GIT_BRANCH=6
+GEOMETRY_COLOR_EXIT_VALUE=9
+GEOMETRY_COLOR_DIR=242
+GEOMETRY_SYMBOL_EXIT_VALUE="▲"
+PROMPT_GEOMETRY_GIT_CONFLICTS=true
+GEOMETRY_PROMPT_PLUGINS=(exec_time git)
