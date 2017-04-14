@@ -134,19 +134,6 @@ nv () {
 	fi
 }
 
-vs () {
-  VSCODE_CWD="$PWD"
-
-  if [ $# -eq 0 ]
-  then
-    cwd=.
-  else
-    cwd="$@"
-  fi
-
-  open -n -b "com.microsoft.VSCode" --args $cwd ;
-}
-
 # `o` with no arguments opens the current directory, otherwise opens the given
 # location
 function o {
