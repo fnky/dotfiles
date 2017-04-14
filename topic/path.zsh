@@ -52,9 +52,6 @@ export RUST_SRC_PATH=$HOME/.multirust/src/rust-5a782442d5728041b4c977e73b4fb2912
 export CARGO_HOME=$HOME/.cargo
 export PATH=$CARGO_HOME/bin:$PATH
 
-# Yarn
-export PATH="$PATH:`yarn global bin`"
-
 # Swiftenv
 # export SWIFTENV_ROOT=$HOME/.swiftenv
 # export PATH=$SWIFTENV_ROOT/bin:$PATH
