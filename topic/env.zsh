@@ -1,7 +1,7 @@
 # set editor
 export VISUAL=subl
 export EDITOR=$VISUAL
-export GIT_EDITOR=$EDITOR
+export GIT_EDITOR="subl -n -w"
 
 # Use UTF-8 encoding for everything
 export LANG=en_US.UTF-8
