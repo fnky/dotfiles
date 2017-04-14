@@ -80,43 +80,6 @@
     errorPanelHeight: 22
   "linter-elixirc": {}
   "linter-eslint":
-    globalNodePath: "/usr/local"
-  "linter-js-standard":
-    honorStyleSettings: true
-  "linter-pep8":
-    ignoreErrorCodes: [
-      "E231"
-      "W191"
-      "E251"
-      "E261"
-      "E262"
-      "E301"
-      "E302"
-      "E402"
-      "E401"
-      "E501"
-      "E701"
-      "E711"
-      "E712"
-      "E226"
-      "E222"
-      "E211"
-      "E202"
-      "E201"
-    ]
-  "linter-swift-package-manager":
-    executablePath: "/Library/Developer/Toolchains/swift-latest.xctoolchain/usr/bin/swift"
-  "markdown-preview":
-    useGitHubStyle: true
-  "northem-dark-atom-ui":
-    tabSizing: false
-  nuclide:
-    "nuclide-home":
-      showHome: false
-    use: {}
-  "one-dark-ui":
-    layoutMode: "Compact"
-  "python-tools": {}
   "release-notes":
     viewedVersion: "0.89.0"
   "seti-ui":
