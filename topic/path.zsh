@@ -20,6 +20,7 @@ export PATH=$PATH:$HOME/jcefdev/depot_tools
 # Go
 export GOPATH=$HOME/dev/Go
 export PATH=$PATH:/usr/local/opt/go/libexec/bin
+export PATH=$PATH:$GOPATH/bin
 
 #Dart
 export PATH=$PATH:$HOME/dart/dart-sdk/bin
@@ -50,3 +51,10 @@ export PATH=/Library/Developer/Toolchains/swift-latest.xctoolchain/usr/bin:$PATH
 export RUST_SRC_PATH=$HOME/.multirust/src/rust-5a782442d5728041b4c977e73b4fb291213d395b/src
 export CARGO_HOME=$HOME/.cargo
 export PATH=$CARGO_HOME/bin:$PATH
+
+# Yarn
+export PATH="$PATH:`yarn global bin`"
+
+# Swiftenv
+# export SWIFTENV_ROOT=$HOME/.swiftenv
+# export PATH=$SWIFTENV_ROOT/bin:$PATH
