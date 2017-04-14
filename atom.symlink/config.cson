@@ -1,10 +1,18 @@
 "*":
+  "asciidoc-preview":
+    skipFrontMatter: false
+    tocType: "none"
   "autocomplete-elixir":
     elixirPath: "/usr/local/bin"
     erlangHome: "/usr/local/bin"
   "autocomplete-plus":
     enableBuiltinProvider: false
+  "autocomplete-python":
+    useKite: false
   build: {}
+  "clang-format":
+    formatCOnSave: false
+    formatCPlusPlusOnSave: false
   "color-picker":
     automaticReplace: true
   core:
@@ -12,6 +20,7 @@
       "source.ini": [
         ".buckconfig"
         ".flowconfig"
+        ".hgrc"
       ]
       "source.json": [
         ".arcconfig"
@@ -24,14 +33,16 @@
       "background-tips"
       "exception-reporting"
       "metrics"
-      "language-lsl"
-      "go-plus"
-      "linter-js-standard"
       "linter-glsl"
       "block-cursor"
       "language-gfm"
       "markdown-preview-plus"
-      "tree-view"
+      "autocomplete-python"
+      "python-tools"
+      "linter-gcc"
+      "highlight-line"
+      "linter-pep8"
+      "linter-flow"
     ]
     followSymlinks: false
     hideGitIgnoredFiles: true
@@ -43,33 +54,68 @@
       "tmp"
       "vendor"
     ]
+    telemetryConsent: "no"
     themes: [
-      "northem-dark-atom-ui"
-      "made-of-code-atom"
+      "one-dark-ui"
+      "gruvbox-plus-syntax"
     ]
+    useCustomTitleBar: true
   editor:
     fontFamily: "Menlo"
+    fontSize: 12
     invisibles: {}
     scrollPastEnd: true
     showIndentGuide: true
     softWrapAtPreferredLineLength: true
-    tabType: "soft"
+    tabType: "auto"
   emmet: {}
+  "file-icons":
+    onChanges: true
   "go-plus":
     formatTool: "gofmt"
   "ide-flow":
     flowPath: "/usr/local/bin/flow"
-  linter: {}
+  "language-babel": {}
+  linter:
+    errorPanelHeight: 22
   "linter-elixirc": {}
   "linter-eslint":
     globalNodePath: "/usr/local"
   "linter-js-standard":
     honorStyleSettings: true
-  "linter-pep8": {}
+  "linter-pep8":
+    ignoreErrorCodes: [
+      "E231"
+      "W191"
+      "E251"
+      "E261"
+      "E262"
+      "E301"
+      "E302"
+      "E402"
+      "E401"
+      "E501"
+      "E701"
+      "E711"
+      "E712"
+      "E226"
+      "E222"
+      "E211"
+      "E202"
+      "E201"
+    ]
   "linter-swift-package-manager":
     executablePath: "/Library/Developer/Toolchains/swift-latest.xctoolchain/usr/bin/swift"
   "markdown-preview":
     useGitHubStyle: true
+  "northem-dark-atom-ui":
+    tabSizing: false
+  nuclide:
+    "nuclide-home":
+      showHome: false
+    use: {}
+  "one-dark-ui":
+    layoutMode: "Compact"
   "python-tools": {}
   "release-notes":
     viewedVersion: "0.89.0"
@@ -84,5 +130,11 @@
       "text.git-commit"
       "text.html.basic"
     ]
+  tabs:
+    enableMruTabSwitching: false
+  "unity-ui": {}
   welcome:
     showOnStartup: false
+".asciidoc.source":
+  editor:
+    softWrap: true

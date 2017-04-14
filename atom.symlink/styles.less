@@ -11,9 +11,10 @@
   roboto    'Roboto Mono'     14px   1.4,
   scodepro  'Source Code Pro' 14px   1.4,
   sfmono    'SF Mono'         14px   1.333333333,
-  ubuntu    'Ubuntu Mono'     16px   1.125;
+  ubuntu    'Ubuntu Mono'     16px   1.125,
+  iosevka   'Iosevka'         14px   16px;
 
-@editor-style: sfmono;
+@editor-style: iosevka;
 
 // Get value from list for given key
 // Assigns the value to @by-key
@@ -42,6 +43,10 @@
 
 .font-feature(@state) when (isnumber(@state)), (@state = on), (@state = off) {
   .font-feature-settings(~'"liga" @{state}, "calt" @{state}');
+}
+
+.font-feature-custom(@ligation) {
+  .font-feature-settings(@ligation);
 }
 
 .font-feature(@state) { .font-feature-settings(@state); }
@@ -74,19 +79,20 @@
 
 atom-text-editor {
   .__antialiased;
+  // .font-feature-custom(~'"cv19", "cv36", "cv33", "cv24" on');
   .style(@editor-style);
 }
 
-div.find-and-replace atom-text-editor::shadow .line {
+div.find-and-replace atom-text-editor.editor .line {
   .disable-ligatures;
 }
 
-div.project-find atom-text-editor::shadow .line {
+div.project-find atom-text-editor.editor .line {
   .disable-ligatures;
 }
 
 // Disable it for current line with https://github.com/richrace/highlight-line
-atom-text-editor::shadow {
+atom-text-editor.editor {
   // The cursor line important to use rgba for opacity, also requires !important
   // to override any theme.
   .line.highlight-line,
@@ -109,12 +115,14 @@ atom-text-editor::shadow {
   }
 
   .cursors {
-    mix-blend-mode: color-dodge;
+    // mix-blend-mode: color-dodge;
+    mix-blend-mode: difference;
 
     .cursor {
       opacity: 1;
       border: none;
-      background-color: #999;
+      // background-color: #999;
+      background-color: #fff;
       transition: opacity 500ms 250ms cubic-bezier(0, 1, .2, 1)
     }
 
@@ -124,7 +132,7 @@ atom-text-editor::shadow {
   }
 }
 
-atom-text-editor[mini]:not(.is-focused)::shadow .cursors .cursor {
+atom-text-editor[mini]:not(.is-focused).editor .cursors .cursor {
   display: none;
 }
 
